@@ -19,7 +19,8 @@ def question(request, question_id: int):
         return HttpResponse(status=404, content="Not Found")
 
     question_item = models.QUESTIONS[question_id]
-    context = {'question': question_item, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
+    paginator, page_o = paginate(request, question_item['answers'], 3)
+    context = {'paginator': paginator, 'page': page_o, 'question': question_item, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'question.html', context=context)
 
 def hot(request):
@@ -29,8 +30,8 @@ def hot(request):
             if models.QUESTIONS[j]['id'] == models.HOT_QUESTION_IDS[i]:
                 questions.append(models.QUESTIONS[models.HOT_QUESTION_IDS[i]])
                 break
-    
-    context = {'questions': questions, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
+    paginator, page_o = paginate(request, questions, 30)
+    context = {'paginator': paginator, 'page': page_o, 'questions': questions, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'hot.html', context=context)
 
 def tag(request, tag_name: str):
@@ -42,7 +43,8 @@ def tag(request, tag_name: str):
                 questions.append(question)
                 break
 
-    context = {'questions': questions, 'tag_name': tag_name, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
+    paginator, page_o = paginate(request, questions, 30)
+    context = {'paginator': paginator, 'page': page_o, 'questions': questions, 'tag_name': tag_name, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'tag.html', context=context)
 
 def login(request):
