@@ -7,6 +7,9 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 def question(request, question_id: int):
+    if question_id < 0 or question_id >= len(models.QUESTIONS):
+        return HttpResponse(status=404, content="Not Found")
+
     question_item = models.QUESTIONS[question_id]
     context = {'question': question_item, 'isAuth': models.IS_AUTH}
     return render(request, 'question.html', context=context)
