@@ -1,0 +1,40 @@
+{% load static %}
+<div class="question">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="question-avatar">
+                        <img src="{% static 'img/avatar-1.png' %}" alt="avatar">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="counter mt-2">
+                        <div class="d-flex">
+                            <button type="button" class="minus-button rounded-start">-</button>
+                            <button type="button" class="plus-button rounded-end me-2">+</button>
+                            <div class="counter-value text-center align-self-center">15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 text-truncate">
+                <div class="row">
+                    <h2 class="question-title">
+                        <a href="{% url 'question' question_id=question.id %}">{{ question.title }}</a>
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="question-text">{{ question.text }}</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="d-flex justify-content-start align-items-center flex-wrap">
+                        <a href="{% url 'question' question_id=question.id %}" class="me-2">answer({{ question.answers_number }})</a>
+                        <span class="me-2">Tags:</span>
+                        {% include 'inc/tag_list.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

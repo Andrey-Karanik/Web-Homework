@@ -1,0 +1,23 @@
+{% load static %}
+<div class="authorized-user-block">
+    <div class="container-fluid-auto ms-2 me-4">
+        <div class="row">
+            <div class="col-auto align-self-center">
+                <img class="avatar" src="{% static 'img/avatar-1.png' %}" alt="avatar">
+            </div>
+            <div class="col align-self-center">
+                <div class="row">
+                    <div class="username">Dr. Pepper</div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="{% url 'settings' %}">settings</a>
+                    </div>
+                    <div class="col">
+                        <a href="#">log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

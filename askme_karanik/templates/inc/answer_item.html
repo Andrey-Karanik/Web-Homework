@@ -1,0 +1,38 @@
+{% load static %}
+<div class="answer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="question-avatar">
+                        <img src="{% static 'img/avatar-1.png' %}" alt="avatar">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="counter mt-2">
+                        <div class="d-flex">
+                            <button type="button" class="minus-button rounded-start">-</button>
+                            <button type="button" class="plus-button rounded-end me-2">+</button>
+                            <div class="counter-value text-center align-self-center">15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 text-truncate">
+                <div class="row">
+                    <div class="question-text">
+                        Lorem ipsum dolor sit amet...
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-check ms-2 mt-2">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label">
+                            Correct!
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
