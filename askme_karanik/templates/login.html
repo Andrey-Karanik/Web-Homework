@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>askme</title>
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/style.css" rel="stylesheet">
+  <script src="../static/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">AskMe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+          aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <form class="d-flex" role="search">
+            <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <button type="button" class="ask-button btn btn-success me-auto">ASK!</button>
+          <div class="non-authorized-block">
+            <div class="container-fluid-auto ms-2 me-4">
+              <div class="row">
+                <div class="col align-self-center">
+                  <a href="#">log in</a>
+                </div>
+                <div class="col align-self-center">
+                  <a href="#">register</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="row">
+      <h1>Log In</h1>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <div class="mb-3 text-danger">Sorry, wrong password!</div>
+        <div class="mb-3">
+          <label for="login-input" class="form-label">Login:</label>
+          <input type="email" class="form-control" id="login-input" placeholder="Your login">
+        </div>
+        <div class="mb-3">
+          <label for="password-input" class="form-label">Password:</label>
+          <input type="password" id="password-input" class="form-control" placeholder="********">
+        </div>
+        <button type="button" class="btn btn-primary me-auto mb-3" id="login-button">Log in!</button>
+        <div class="mb-3">
+          <a href="#">create new account</a>
+        </div>
+      </div>
+      <div class="col-4">
+        <h1>Popular Tags</h1>
+        <div class="d-flex flex-wrap">
+          <div class="popular-tag me-2 fs-2">perl</div>
+          <div class="popular-tag me-2 fs-2">python</div>
+          <div class="popular-tag me-2 fs-2">TechnoPark</div>
+          <div class="popular-tag me-2 fs-2">MySQL</div>
+          <div class="popular-tag me-2 fs-2">django</div>
+          <div class="popular-tag me-2 fs-2">Mail.Ru</div>
+          <div class="popular-tag me-2 fs-2">Voloshin</div>
+          <div class="popular-tag me-2 fs-2">Firefox</div>
+        </div>
+        <h1>Best Members</h1>
+        <div class="d-flex flex-column">
+          <a href="#" class="best-member me-2 fs-2">Mr. Freeman</a>
+          <a href="#" class="best-member me-2 fs-2">Dr. House</a>
+          <a href="#" class="best-member me-2 fs-2">Bender</a>
+          <a href="#" class="best-member me-2 fs-2">Queen Victoria</a>
+          <a href="#" class="best-member me-2 fs-2">V. Pupkin</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-light text-center text-lg-start my-md-5">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright: Andrey Karanik
+    </div>
+  </footer>
+</body>
+
+</html>
