@@ -1,11 +1,21 @@
 from django.db import models
 
 class User(models.Model):
-    login = models.CharField(max_length=30)
-    email = models.CharField(max_length=30)
-    nickname = models.CharField(max_length=30)
-    password = models.CharField(max_length=30)
-    
+    login = models.CharField(max_length=32)
+    email = models.CharField(max_length=32)
+    nickname = models.CharField(max_length=32)
+    password = models.CharField(max_length=32)
+
+    def __str__(self):
+        return f"{self.id} {self.login} {self.email} {self.nickname} {self.password}"
+
+class Question(models.Model):
+    title = models.CharField(max_length=64, unique=True)
+    author = models.ForeignKey(User, related_name="questions")
+    text = models.CharField(max_length=256)
+    like_users = models.ManyToManyField(User, related_name="likes", blank=True)
+    dislike_users = models.ManyToManyField(User, related_name="dislikes", blank=True)
+
 
 BEST_MEMBERS = [
     'Mr. Freeman',

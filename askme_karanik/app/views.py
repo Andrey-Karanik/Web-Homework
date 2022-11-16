@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from . import models
+from .models import User
 
 def paginate(request, objects_list, per_page=10):
     paginator = Paginator(objects_list, per_page)
