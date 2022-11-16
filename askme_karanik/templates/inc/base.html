@@ -51,7 +51,7 @@
         <h1>Popular Tags</h1>
         <div class="d-flex flex-wrap">
           {% for popular_tag in popular_tags %}
-            <a href="{% url 'tag' tag_name=popular_tag %}" class="popular-tag me-2 fs-2">{{ popular_tag }}</a>
+            <a href="{% url 'tag' tag_name=popular_tag %}"><span class="popular-tag badge text-bg-primary me-2 fs-2 mt-1">{{ popular_tag }}</span></a>
           {% endfor %}
         </div>
         <h1>Best Members</h1>
