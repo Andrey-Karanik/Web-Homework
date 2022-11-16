@@ -5,7 +5,7 @@ from . import models
 
 
 def index(request):
-    context = {'questions': models.QUESTIONS, 'isAuth': models.IS_AUTH}
+    context = {'questions': models.QUESTIONS, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'index.html', context=context)
 
 def question(request, question_id: int):
@@ -13,7 +13,7 @@ def question(request, question_id: int):
         return HttpResponse(status=404, content="Not Found")
 
     question_item = models.QUESTIONS[question_id]
-    context = {'question': question_item, 'isAuth': models.IS_AUTH}
+    context = {'question': question_item, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'question.html', context=context)
 
 def hot(request):
@@ -24,7 +24,7 @@ def hot(request):
                 questions.append(models.QUESTIONS[models.HOT_QUESTION_IDS[i]])
                 break
     
-    context = {'questions': questions, 'isAuth': models.IS_AUTH}
+    context = {'questions': questions, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'hot.html', context=context)
 
 def tag(request, tag_name: str):
@@ -36,21 +36,21 @@ def tag(request, tag_name: str):
                 questions.append(question)
                 break
 
-    context = {'questions': questions, 'tag_name': tag_name, 'isAuth': models.IS_AUTH}
+    context = {'questions': questions, 'tag_name': tag_name, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'tag.html', context=context)
 
 def login(request):
-    context = {'isAuth': models.IS_AUTH}
+    context = {'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'login.html', context=context)
 
 def signup(request):
-    context = {'isAuth': models.IS_AUTH}
+    context = {'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'signup.html', context=context)
 
 def ask(request):
-    context = {'isAuth': models.IS_AUTH}
+    context = {'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'ask.html', context=context)
 
 def settings(request):
-    context = {'isAuth': models.IS_AUTH}
+    context = {'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'settings.html', context=context)

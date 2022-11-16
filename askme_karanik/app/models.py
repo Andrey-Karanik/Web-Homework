@@ -8,6 +8,17 @@ BEST_MEMBERS = [
     'V. Pupkin'
 ]
 
+POPULAR_TAGS = [
+    'perl',
+    'python',
+    'TechnoPark',
+    'MySQL',
+    'django',
+    'Mail.Ru',
+    'Voloshin',
+    'Firefox'
+]
+
 QUESTIONS = []
 for id in range(40):
     ANSWERS = []
