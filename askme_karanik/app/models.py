@@ -1,14 +1,38 @@
 from django.db import models
 
-QUESTIONS = [
-    {
-        'id': question_id,
-        'title': f'Question #{question_id}',
-        'text': f'Text of question #{question_id}',
-        'answers_number': question_id * question_id,
-        'tags': ['blablabla' for i in range(question_id)]
-    } for question_id in range(30)
+POP_TAGS = [
+    {'name': 'Swift', 'color': "btn btn-danger"},
+    {'name': 'Xcode', 'color': "btn btn-warning"},
+    {'name': 'tag7', 'color': "btn btn-success"},
+    {'name': 'html', 'color': "btn btn-primary"},
+    {'name': 'css', 'color': "btn btn-secondary"},
+    {'name': 'tag4', 'color': "btn btn-dark"},
 ]
+
+BEST_MEMBERS = [
+    'Mr. Freeman',
+    'Dr. House',
+    'Bender',
+    'Queen Victoria',
+    'V. Pupkin'
+]
+
+QUESTIONS = []
+for id in range(40):
+    ANSWERS = []
+    for i in range(id*id):
+        ANSWERS.append({
+            'id': i,
+            'text': f'Text of Answer {i}'
+        })
+    QUESTIONS.append({
+        'id': id,
+        'title': f'Question {id}',
+        'text': f'Text of Question {id}',
+        'answers_number': id * id,
+        'answers': ANSWERS,
+        'tags': [f'tag{i}' for i in range(id)]
+    })
 
 HOT_QUESTION_IDS = [0, 5, 12]
 

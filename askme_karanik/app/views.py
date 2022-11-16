@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from . import models
 
+
+
 def index(request):
     context = {'questions': models.QUESTIONS, 'isAuth': models.IS_AUTH}
     return render(request, 'index.html', context=context)

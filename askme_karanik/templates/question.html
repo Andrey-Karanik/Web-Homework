@@ -41,9 +41,9 @@
 </div>
 <div class="b-divider"></div>
 <div class="answer-list">
+  {% for answer in question.answers %}
   {% include 'inc/answer_item.html' %}
-  {% include 'inc/answer_item.html' %}
-  {% include 'inc/answer_item.html' %}
+  {% endfor %}
 </div>
 {% include 'inc/paginator.html' %}
 {% endblock %}
