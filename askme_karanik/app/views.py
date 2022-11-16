@@ -1,11 +1,17 @@
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from . import models
 
-
+def paginate(request, objects_list, per_page=10):
+    paginator = Paginator(objects_list, per_page)
+    page_num = request.GET.get('page')
+    page_o = paginator.get_page(page_num)
+    return paginator, page_o
 
 def index(request):
-    context = {'questions': models.QUESTIONS, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
+    paginator, page_o = paginate(request, models.QUESTIONS, 30)
+    context = {'paginator': paginator, 'page': page_o, 'questions': models.QUESTIONS, 'isAuth': models.IS_AUTH, 'popular_tags': models.POPULAR_TAGS, 'best_members': models.BEST_MEMBERS}
     return render(request, 'index.html', context=context)
 
 def question(request, question_id: int):

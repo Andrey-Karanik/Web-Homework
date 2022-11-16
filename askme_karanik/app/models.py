@@ -20,7 +20,7 @@ POPULAR_TAGS = [
 ]
 
 QUESTIONS = []
-for id in range(40):
+for id in range(80):
     ANSWERS = []
     for i in range(id * id):
         ANSWERS.append({
