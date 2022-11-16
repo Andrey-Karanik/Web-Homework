@@ -1,5 +1,12 @@
 from django.db import models
 
+class User(models.Model):
+    login = models.CharField(max_length=30)
+    email = models.CharField(max_length=30)
+    nickname = models.CharField(max_length=30)
+    password = models.CharField(max_length=30)
+    
+
 BEST_MEMBERS = [
     'Mr. Freeman',
     'Dr. House',
